@@ -1,1 +1,1237 @@
+<!DOCTYPE html>
+<html lang="en" class="dark">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Strength for the Decades Ahead</title>
+  <meta name="description" content="An 8-week beginner barbell programme for adults 50+ with DEXA baseline, small-group coaching, and a starting-block qualifier." />
+  <meta property="og:title" content="Strength for the Decades Ahead" />
+  <meta property="og:description" content="Find your starting block for a longevity-focused strength programme designed for adults 50+." />
+  <meta property="og:type" content="website" />
+  <meta property="og:image" content="" />
+  <!-- og:image placeholder: 1200x630 -->
+  <meta name="twitter:card" content="summary_large_image" />
+  <meta name="twitter:title" content="Strength for the Decades Ahead" />
+  <meta name="twitter:description" content="A serious start, without the intimidation." />
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800;900&display=swap" rel="stylesheet">
+  <link rel="icon" type="image/svg+xml" href="data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 64 64'%3E%3Ctext y='50' x='8' font-size='40'%3E%F0%9F%8F%8B%EF%B8%8F%3C/text%3E%3C/svg%3E">
+  <script>
+    (function() {
+      try {
+        var saved = localStorage.getItem('longevity-theme');
+        var root = document.documentElement;
+        if (saved === 'light') root.classList.add('light');
+        else root.classList.remove('light');
+      } catch (e) {}
+    })();
+  </script>
+  <style>
+    :root {
+      --bg: #020a18;
+      --bg-grad: linear-gradient(170deg, #020a18, #041028 40%, #06142e 70%, #020a18);
+      --surface: rgba(8,24,56,0.85);
+      --border: rgba(0,170,255,0.12);
+      --text: #d0e0f0;
+      --text-bright: #e8f0ff;
+      --text-dim: #6888aa;
+      --neon: #00aaff;
+      --cyan: #00e5ff;
+      --green: #00ff88;
+      --amber: #ffaa00;
+      --shadow: 0 20px 60px rgba(0,0,0,0.28);
+      --radius: 24px;
+      --radius-sm: 16px;
+      --container: 880px;
+      --grid: rgba(255,255,255,0.03);
+      color-scheme: dark;
+    }
 
+    html.light {
+      --bg: #eef6ff;
+      --bg-grad: linear-gradient(170deg, #f7fbff, #eaf4ff 42%, #edf8ff 72%, #f8fbff);
+      --surface: rgba(255,255,255,0.88);
+      --border: rgba(0,120,200,0.12);
+      --text: #18324f;
+      --text-bright: #061a2d;
+      --text-dim: #5f7893;
+      --neon: #0078d4;
+      --cyan: #0aa6c6;
+      --green: #008f5a;
+      --amber: #c98400;
+      --shadow: 0 22px 50px rgba(24,50,79,0.10);
+      --grid: rgba(11,52,91,0.04);
+      color-scheme: light;
+    }
+
+    * { box-sizing: border-box; }
+    html { scroll-behavior: smooth; }
+    body {
+      margin: 0;
+      font-family: Inter, system-ui, -apple-system, BlinkMacSystemFont, "Segoe UI", sans-serif;
+      font-size: 16px;
+      line-height: 1.65;
+      -webkit-font-smoothing: antialiased;
+      text-rendering: optimizeLegibility;
+      color: var(--text);
+      background: var(--bg-grad);
+      min-height: 100vh;
+      position: relative;
+      overflow-x: hidden;
+    }
+
+    body::before {
+      content: "";
+      position: fixed;
+      inset: 0;
+      background-image:
+        linear-gradient(var(--grid) 1px, transparent 1px),
+        linear-gradient(90deg, var(--grid) 1px, transparent 1px);
+      background-size: 60px 60px;
+      pointer-events: none;
+      opacity: 1;
+      z-index: -3;
+    }
+
+    body::after {
+      content: "";
+      position: fixed;
+      inset: 0;
+      background: radial-gradient(circle at top center, rgba(0,229,255,0.08), transparent 32%), radial-gradient(circle at bottom left, rgba(0,170,255,0.08), transparent 30%);
+      pointer-events: none;
+      z-index: -2;
+    }
+
+    .orb {
+      position: fixed;
+      border-radius: 999px;
+      filter: blur(70px);
+      opacity: 0.18;
+      pointer-events: none;
+      z-index: -1;
+      mix-blend-mode: screen;
+      animation: orbit 18s ease-in-out infinite alternate;
+    }
+
+    .orb-a {
+      width: 300px;
+      height: 300px;
+      top: 8vh;
+      left: -80px;
+      background: radial-gradient(circle, var(--neon), transparent 65%);
+    }
+
+    .orb-b {
+      width: 340px;
+      height: 340px;
+      right: -100px;
+      top: 48vh;
+      background: radial-gradient(circle, var(--cyan), transparent 65%);
+      animation-duration: 24s;
+    }
+
+    @keyframes orbit {
+      0% { transform: translate3d(0, 0, 0) scale(1); }
+      50% { transform: translate3d(40px, -30px, 0) scale(1.08); }
+      100% { transform: translate3d(-30px, 35px, 0) scale(0.94); }
+    }
+
+    a { color: inherit; text-decoration: none; }
+    button { font: inherit; }
+    .container {
+      width: min(var(--container), calc(100% - 32px));
+      margin: 0 auto;
+    }
+
+    .site-header {
+      position: sticky;
+      top: 0;
+      z-index: 50;
+      backdrop-filter: blur(20px);
+      background: color-mix(in srgb, var(--bg) 76%, transparent);
+      border-bottom: 1px solid var(--border);
+    }
+
+    .header-row {
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      gap: 16px;
+      padding: 14px 0;
+    }
+
+    .brand {
+      display: flex;
+      align-items: center;
+      gap: 12px;
+      min-width: 0;
+    }
+
+    .brand-mark {
+      width: 42px;
+      height: 42px;
+      border-radius: 14px;
+      display: grid;
+      place-items: center;
+      background: linear-gradient(135deg, rgba(0,170,255,0.22), rgba(0,229,255,0.08));
+      border: 1px solid var(--border);
+      box-shadow: inset 0 0 0 1px rgba(255,255,255,0.03);
+      font-size: 18px;
+    }
+
+    .brand-text small,
+    .eyebrow,
+    .meta {
+      color: var(--text-dim);
+      letter-spacing: 0.08em;
+      text-transform: uppercase;
+      font-size: 0.72rem;
+      font-weight: 700;
+    }
+
+    .brand-text strong {
+      display: block;
+      color: var(--text-bright);
+      font-size: 0.98rem;
+      letter-spacing: -0.01em;
+    }
+
+    .header-actions {
+      display: flex;
+      align-items: center;
+      gap: 10px;
+    }
+
+    .theme-toggle,
+    .pill-link,
+    .cta,
+    .secondary,
+    .tier-cta,
+    .qualifier-nav button,
+    .choice,
+    .jump-link {
+      border: 1px solid var(--border);
+      border-radius: 999px;
+      transition: transform 180ms ease, border-color 180ms ease, background 180ms ease, color 180ms ease, box-shadow 180ms ease;
+    }
+
+    .theme-toggle {
+      width: 46px;
+      height: 46px;
+      display: grid;
+      place-items: center;
+      background: rgba(255,255,255,0.03);
+      color: var(--text-bright);
+      cursor: pointer;
+    }
+
+    .pill-link,
+    .jump-link,
+    .cta,
+    .secondary,
+    .tier-cta,
+    .qualifier-nav button {
+      display: inline-flex;
+      align-items: center;
+      justify-content: center;
+      gap: 10px;
+      min-height: 48px;
+      padding: 0 18px;
+      font-weight: 700;
+      cursor: pointer;
+    }
+
+    .pill-link,
+    .jump-link,
+    .secondary,
+    .qualifier-nav button {
+      background: rgba(255,255,255,0.03);
+      color: var(--text);
+    }
+
+    .cta,
+    .tier-cta {
+      background: linear-gradient(135deg, var(--neon), var(--cyan));
+      color: #02101f;
+      box-shadow: 0 14px 30px rgba(0,170,255,0.24);
+      border-color: transparent;
+    }
+
+    .tier-cta.is-green {
+      background: linear-gradient(135deg, var(--green), #7fffc8);
+      color: #04180f;
+      box-shadow: 0 14px 30px rgba(0,255,136,0.18);
+    }
+
+    .tier-cta.is-amber {
+      background: linear-gradient(135deg, var(--amber), #ffd278);
+      color: #231400;
+      box-shadow: 0 14px 30px rgba(255,170,0,0.20);
+    }
+
+    .theme-toggle:hover,
+    .pill-link:hover,
+    .cta:hover,
+    .secondary:hover,
+    .tier-cta:hover,
+    .qualifier-nav button:hover,
+    .choice:hover,
+    .jump-link:hover {
+      transform: translateY(-1px);
+      border-color: color-mix(in srgb, var(--neon) 50%, var(--border));
+    }
+
+    main { padding: 34px 0 80px; }
+
+    section { margin-top: 28px; }
+
+    .panel {
+      background: var(--surface);
+      border: 1px solid var(--border);
+      border-radius: var(--radius);
+      box-shadow: var(--shadow);
+      position: relative;
+      overflow: hidden;
+    }
+
+    .panel::before {
+      content: "";
+      position: absolute;
+      inset: 0;
+      background: linear-gradient(180deg, rgba(255,255,255,0.03), transparent 18%);
+      pointer-events: none;
+    }
+
+    .hero {
+      padding: clamp(28px, 5vw, 52px);
+      display: grid;
+      grid-template-columns: 1.15fr 0.85fr;
+      gap: 28px;
+      align-items: center;
+    }
+
+    h1, h2, h3 {
+      margin: 0;
+      color: var(--text-bright);
+      line-height: 1.05;
+      letter-spacing: -0.03em;
+    }
+
+    h1 { font-size: clamp(2.35rem, 5.5vw, 4.7rem); }
+    h2 { font-size: clamp(1.6rem, 3vw, 2.4rem); }
+    h3 { font-size: clamp(1.05rem, 1.8vw, 1.3rem); }
+
+    p { margin: 0; color: var(--text); }
+
+    .hero-copy {
+      display: grid;
+      gap: 18px;
+    }
+
+    .hero-copy p {
+      max-width: 58ch;
+      color: color-mix(in srgb, var(--text) 96%, white 4%);
+      font-size: 1.05rem;
+    }
+
+    .hero-actions,
+    .jump-links {
+      display: flex;
+      flex-wrap: wrap;
+      gap: 12px;
+    }
+
+    .hero-stat-grid,
+    .reasons,
+    .quotes,
+    .faq-grid,
+    .tiers,
+    .signals {
+      display: grid;
+      gap: 16px;
+    }
+
+    .hero-stat-grid {
+      grid-template-columns: repeat(3, minmax(0, 1fr));
+      margin-top: 10px;
+    }
+
+    .stat,
+    .reason,
+    .quote,
+    .faq-item,
+    .tier,
+    .signal,
+    .sample-card,
+    .qualifier-shell,
+    .result-card {
+      background: rgba(255,255,255,0.025);
+      border: 1px solid var(--border);
+      border-radius: var(--radius-sm);
+    }
+
+    .stat {
+      padding: 16px;
+      display: grid;
+      gap: 8px;
+      min-height: 132px;
+    }
+
+    .stat strong {
+      font-size: clamp(1.45rem, 2.8vw, 2rem);
+      color: var(--text-bright);
+    }
+
+    .hero-visual {
+      position: relative;
+      min-height: 420px;
+      padding: 18px;
+      display: flex;
+      align-items: end;
+      justify-content: center;
+    }
+
+    .pathway {
+      width: 100%;
+      position: relative;
+      display: grid;
+      gap: 14px;
+      padding: 28px 0 10px;
+    }
+
+    .pathway::before {
+      content: "";
+      position: absolute;
+      left: 20px;
+      right: 20px;
+      top: 60px;
+      height: 2px;
+      background: linear-gradient(90deg, rgba(255,170,0,0.45), rgba(0,170,255,0.65), rgba(0,255,136,0.5));
+    }
+
+    .block-card {
+      position: relative;
+      padding: 22px 20px 18px;
+      background: linear-gradient(180deg, rgba(255,255,255,0.05), rgba(255,255,255,0.02));
+      border: 1px solid var(--border);
+      border-radius: 20px;
+      box-shadow: inset 0 1px 0 rgba(255,255,255,0.05);
+    }
+
+    .block-card::before {
+      content: "";
+      position: absolute;
+      width: 14px;
+      height: 14px;
+      border-radius: 999px;
+      top: -7px;
+      left: 24px;
+      background: var(--neon);
+      box-shadow: 0 0 0 6px rgba(0,170,255,0.08), 0 0 18px rgba(0,170,255,0.45);
+    }
+
+    .block-card.foundation::before { background: var(--amber); box-shadow: 0 0 0 6px rgba(255,170,0,0.08), 0 0 18px rgba(255,170,0,0.35); }
+    .block-card.progress::before { background: var(--green); box-shadow: 0 0 0 6px rgba(0,255,136,0.08), 0 0 18px rgba(0,255,136,0.30); }
+
+    .block-card span,
+    .tier-label,
+    .result-label {
+      display: inline-flex;
+      align-items: center;
+      gap: 8px;
+      color: var(--text-dim);
+      font-size: 0.76rem;
+      text-transform: uppercase;
+      letter-spacing: 0.08em;
+      font-weight: 800;
+      margin-bottom: 8px;
+    }
+
+    .block-card p,
+    .tier p,
+    .faq-item p,
+    .quote p,
+    .sample-card p,
+    .signal p,
+    .result-card p { color: var(--text); }
+
+    .section-head {
+      display: flex;
+      align-items: end;
+      justify-content: space-between;
+      gap: 18px;
+      margin-bottom: 18px;
+    }
+
+    .section-head p { max-width: 52ch; }
+
+    .grid-3 { grid-template-columns: repeat(3, minmax(0, 1fr)); }
+    .grid-2 { grid-template-columns: repeat(2, minmax(0, 1fr)); }
+
+    .reasons .reason,
+    .quotes .quote,
+    .faq-grid .faq-item,
+    .signals .signal,
+    .tiers .tier {
+      padding: 20px;
+      min-height: 100%;
+    }
+
+    .reason strong,
+    .faq-item strong,
+    .signal strong,
+    .tier strong {
+      display: block;
+      color: var(--text-bright);
+      margin-bottom: 8px;
+      font-size: 1rem;
+    }
+
+    .sample {
+      padding: clamp(24px, 4vw, 34px);
+      display: grid;
+      grid-template-columns: 0.9fr 1.1fr;
+      gap: 18px;
+    }
+
+    .sample-card {
+      padding: 20px;
+      display: grid;
+      gap: 12px;
+    }
+
+    .sample-list {
+      display: grid;
+      gap: 12px;
+    }
+
+    .sample-list div {
+      display: flex;
+      gap: 12px;
+      align-items: flex-start;
+      padding: 14px 0;
+      border-top: 1px solid color-mix(in srgb, var(--border) 80%, transparent);
+    }
+
+    .sample-list div:first-child { border-top: 0; }
+
+    .sample-list b {
+      min-width: 28px;
+      height: 28px;
+      border-radius: 999px;
+      display: inline-grid;
+      place-items: center;
+      color: #04101f;
+      background: linear-gradient(135deg, var(--neon), var(--cyan));
+      font-size: 0.8rem;
+    }
+
+    .quote {
+      position: relative;
+      display: grid;
+      gap: 10px;
+    }
+
+    .quote::before {
+      content: "“";
+      position: absolute;
+      top: 12px;
+      right: 16px;
+      font-size: 3rem;
+      line-height: 1;
+      color: rgba(255,255,255,0.06);
+    }
+
+    .quote cite {
+      color: var(--text-dim);
+      font-style: normal;
+      font-size: 0.92rem;
+    }
+
+    .faq-grid { grid-template-columns: repeat(2, minmax(0, 1fr)); }
+
+    .qualifier-wrap {
+      padding: clamp(24px, 4vw, 38px);
+      display: grid;
+      grid-template-columns: 0.86fr 1.14fr;
+      gap: 20px;
+      align-items: start;
+    }
+
+    .signals { margin-top: 18px; }
+
+    .qualifier-shell {
+      padding: 20px;
+      display: grid;
+      gap: 18px;
+    }
+
+    .progress-row {
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      gap: 12px;
+      color: var(--text-dim);
+      font-size: 0.9rem;
+    }
+
+    .progress-track {
+      width: 100%;
+      height: 8px;
+      border-radius: 999px;
+      background: rgba(255,255,255,0.05);
+      overflow: hidden;
+      border: 1px solid var(--border);
+    }
+
+    .progress-fill {
+      height: 100%;
+      width: 20%;
+      border-radius: inherit;
+      background: linear-gradient(90deg, var(--amber), var(--neon), var(--green));
+      transition: width 220ms ease;
+    }
+
+    .question-card {
+      display: grid;
+      gap: 14px;
+    }
+
+    .question-card h3 { font-size: clamp(1.25rem, 2vw, 1.55rem); }
+
+    .choices {
+      display: grid;
+      gap: 10px;
+    }
+
+    .choice {
+      width: 100%;
+      text-align: left;
+      padding: 16px 16px;
+      background: rgba(255,255,255,0.02);
+      color: var(--text);
+      cursor: pointer;
+      font-weight: 600;
+      display: flex;
+      align-items: start;
+      gap: 12px;
+    }
+
+    .choice span {
+      width: 28px;
+      height: 28px;
+      flex: 0 0 28px;
+      border-radius: 999px;
+      border: 1px solid var(--border);
+      display: inline-grid;
+      place-items: center;
+      color: var(--text-dim);
+      font-size: 0.8rem;
+      margin-top: 1px;
+    }
+
+    .choice.is-selected {
+      border-color: color-mix(in srgb, var(--neon) 58%, white 12%);
+      background: linear-gradient(180deg, rgba(0,170,255,0.12), rgba(255,255,255,0.02));
+      box-shadow: inset 0 0 0 1px rgba(0,229,255,0.15);
+    }
+
+    .choice.is-selected span {
+      background: linear-gradient(135deg, var(--neon), var(--cyan));
+      color: #02101f;
+      border-color: transparent;
+    }
+
+    .qualifier-nav {
+      display: flex;
+      justify-content: space-between;
+      gap: 12px;
+      padding-top: 6px;
+    }
+
+    .qualifier-nav button[disabled] {
+      opacity: 0.48;
+      cursor: not-allowed;
+      transform: none;
+    }
+
+    .result-card {
+      padding: 24px;
+      display: grid;
+      gap: 14px;
+      min-height: 280px;
+      align-content: start;
+      background:
+        linear-gradient(180deg, rgba(255,255,255,0.05), rgba(255,255,255,0.02)),
+        radial-gradient(circle at top right, rgba(0,170,255,0.12), transparent 38%);
+    }
+
+    .result-card.foundation-card {
+      background:
+        linear-gradient(180deg, rgba(255,255,255,0.05), rgba(255,255,255,0.02)),
+        radial-gradient(circle at top right, rgba(255,170,0,0.15), transparent 40%);
+    }
+
+    .result-card.progress-card {
+      background:
+        linear-gradient(180deg, rgba(255,255,255,0.05), rgba(255,255,255,0.02)),
+        radial-gradient(circle at top right, rgba(0,255,136,0.14), transparent 40%);
+    }
+
+    .result-card ul {
+      list-style: none;
+      padding: 0;
+      margin: 0;
+      display: grid;
+      gap: 10px;
+    }
+
+    .result-card li {
+      display: flex;
+      gap: 10px;
+      align-items: start;
+      color: var(--text);
+    }
+
+    .result-card li::before {
+      content: "•";
+      color: var(--cyan);
+      font-weight: 900;
+    }
+
+    .tiers {
+      grid-template-columns: repeat(3, minmax(0, 1fr));
+    }
+
+    .tier {
+      display: grid;
+      gap: 14px;
+      align-content: start;
+      position: relative;
+    }
+
+    .tier.highlight {
+      border-color: color-mix(in srgb, var(--neon) 60%, var(--border));
+      box-shadow: 0 20px 40px rgba(0,170,255,0.12);
+    }
+
+    .tier-price {
+      display: inline-flex;
+      align-items: baseline;
+      gap: 6px;
+      color: var(--text-bright);
+      font-size: 1.6rem;
+      font-weight: 800;
+    }
+
+    footer {
+      padding: 18px 0 8px;
+      color: var(--text-dim);
+      font-size: 0.92rem;
+    }
+
+    @media (max-width: 920px) {
+      .hero,
+      .sample,
+      .qualifier-wrap,
+      .faq-grid,
+      .grid-3,
+      .grid-2,
+      .hero-stat-grid,
+      .tiers {
+        grid-template-columns: 1fr;
+      }
+
+      .hero-visual { min-height: auto; }
+      .section-head { flex-direction: column; align-items: start; }
+      .qualifier-nav { flex-direction: column-reverse; }
+      .qualifier-nav button { width: 100%; }
+    }
+
+    @media (max-width: 640px) {
+      .header-row { align-items: start; flex-direction: column; }
+      .header-actions { width: 100%; justify-content: space-between; }
+      .hero,
+      .sample,
+      .qualifier-wrap { padding: 22px; }
+      main { padding-top: 18px; }
+      .hero-copy p { font-size: 1rem; }
+    }
+  </style>
+</head>
+<body>
+  <div class="orb orb-a"></div>
+  <div class="orb orb-b"></div>
+
+  <header class="site-header">
+    <div class="container header-row">
+      <div class="brand">
+        <div class="brand-mark" aria-hidden="true">🏋️</div>
+        <div class="brand-text">
+          <small>Longevity strength launch</small>
+          <strong>Strength for the Decades Ahead</strong>
+        </div>
+      </div>
+      <div class="header-actions">
+        <a class="pill-link" href="#qualifier">Find your starting block</a>
+        <button class="theme-toggle" id="themeToggle" aria-label="Switch to light mode" title="Toggle theme">
+          <span id="themeIcon">☀︎</span>
+        </button>
+      </div>
+    </div>
+  </header>
+
+  <main class="container">
+    <section class="panel hero" id="top">
+      <div class="hero-copy">
+        <div class="eyebrow">Active after 50, but not yet strong enough?</div>
+        <h1>You’re active. Now get stronger for the decades ahead.</h1>
+        <p>An 8-week beginner barbell programme for adults 50+ who know walking, classes, or cardio alone are not enough to protect strength, muscle, and confidence.</p>
+        <div class="hero-actions">
+          <a class="cta" href="#qualifier">Find your starting block</a>
+          <a class="secondary" href="#experience">See what week one looks like</a>
+        </div>
+        <div class="hero-stat-grid">
+          <div class="stat">
+            <div class="meta">Why now</div>
+            <strong>1.47M</strong>
+            <p>People aged 50–74 in Ireland by Q1 2025, with the segment up 18% since 2019.</p>
+          </div>
+          <div class="stat">
+            <div class="meta">The gap</div>
+            <strong>2.1M</strong>
+            <p>More active people aged 55–74 in England than in 2015/16, yet strength still lags behind general activity.</p>
+          </div>
+          <div class="stat">
+            <div class="meta">The offer</div>
+            <strong>€299–€599</strong>
+            <p>Target benchmark for 8 weeks, positioned between app fitness and premium private coaching.</p>
+          </div>
+        </div>
+      </div>
+
+      <div class="hero-visual">
+        <div class="pathway" aria-label="Three starting blocks">
+          <div class="block-card foundation">
+            <span>Starting block 01</span>
+            <h3>Foundation</h3>
+            <p>A safe, confidence-building entry for people who want coaching, reassurance, and a proper first step.</p>
+          </div>
+          <div class="block-card build">
+            <span>Starting block 02</span>
+            <h3>Build</h3>
+            <p>The core 8-week route for active adults who know they need structured strength, not another generic class.</p>
+          </div>
+          <div class="block-card progress">
+            <span>Starting block 03</span>
+            <h3>Progress</h3>
+            <p>The most measurement-led path, for people who want DEXA, check-ins, and stronger momentum from day one.</p>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <section id="reasons">
+      <div class="section-head">
+        <div>
+          <div class="eyebrow">Who this is really for</div>
+          <h2>This is for active adults who know activity is not the same as strength.</h2>
+        </div>
+        <p>The audience is not looking for bodybuilding culture or “senior fitness.” They want a serious start, without intimidation, and a clearer path into strength that matches later-life capability goals.</p>
+      </div>
+      <div class="reasons grid-3">
+        <article class="reason">
+          <strong>You already move, but want a real plan.</strong>
+          <p>You walk, swim, cycle, golf, or do classes, yet still feel that structured strength is the missing pillar.</p>
+        </article>
+        <article class="reason">
+          <strong>You want coaching, not chaos.</strong>
+          <p>You want serious programming and proper technique, not random circuits, vague wellness, or intimidating free-weight floors.</p>
+        </article>
+        <article class="reason">
+          <strong>You care about staying capable.</strong>
+          <p>You want to lift, carry, travel, get up from the floor, and protect independence for the decades ahead.</p>
+        </article>
+      </div>
+    </section>
+
+    <section class="panel sample" id="experience">
+      <div class="sample-card">
+        <div class="eyebrow">Sample experience</div>
+        <h2>What week one actually looks like</h2>
+        <p>You arrive for a baseline check-in, complete your DEXA scan, meet a small group at your level, and learn the first barbell patterns with a coach who explains what to do, why it matters, and how to progress safely.</p>
+        <div class="jump-links">
+          <a class="jump-link" href="#faq">See common objections</a>
+          <a class="jump-link" href="#tiers">Compare programme routes</a>
+        </div>
+      </div>
+      <div class="sample-card sample-list">
+        <div>
+          <b>1</b>
+          <p><strong>Baseline.</strong> DEXA and a practical starting-point assessment make progress visible from the start.</p>
+        </div>
+        <div>
+          <b>2</b>
+          <p><strong>Small-group coaching.</strong> Everyone trains at the right entry point, with enough oversight to build confidence early.</p>
+        </div>
+        <div>
+          <b>3</b>
+          <p><strong>Evidence-based progression.</strong> No random workouts. Just a clear 8-week strength path that gets more competent week by week.</p>
+        </div>
+      </div>
+    </section>
+
+    <section id="proof">
+      <div class="section-head">
+        <div>
+          <div class="eyebrow">Why the category is open</div>
+          <h2>The people most likely to join often say the same thing.</h2>
+        </div>
+        <p>The market gap is not “do older adults care about health?” It is whether anyone gives them a coached, credible, non-patronising on-ramp into strength.</p>
+      </div>
+      <div class="quotes grid-3">
+        <article class="quote">
+          <p>“Some participants felt they needed specialised equipment for strength exercises, but were reluctant to engage in a traditional gym environment, citing issues such as boredom or intimidation.”</p>
+          <cite>University of Manchester policy summary</cite>
+        </article>
+        <article class="quote">
+          <p>“For those who had access to classes for older people, they felt the exercises were not strenuous enough to justify their continued participation.”</p>
+          <cite>University of Manchester policy summary</cite>
+        </article>
+        <article class="quote">
+          <p>“Many individuals cite barriers such as lack of confidence, uncertainty on how to begin, fear of injury, or the belief that gyms are not suitable for them.”</p>
+          <cite>The Conversation, healthy ageing and strength training</cite>
+        </article>
+      </div>
+    </section>
+
+    <section id="faq">
+      <div class="section-head">
+        <div>
+          <div class="eyebrow">Objection handling</div>
+          <h2>Answer the questions people ask before they ever enquire.</h2>
+        </div>
+        <p>The page should resolve fear, confusion, and comparison anxiety before it asks for commitment.</p>
+      </div>
+      <div class="faq-grid">
+        <article class="faq-item">
+          <strong>I’ve never touched a barbell. Is this still for me?</strong>
+          <p>Yes. The programme is designed as a beginner on-ramp, with small-group coaching and progression built for first-timers over 50.</p>
+        </article>
+        <article class="faq-item">
+          <strong>I’m active already. Why not just keep walking or doing classes?</strong>
+          <p>Because activity is not the same as structured strength. This programme adds the missing pillar that helps protect muscle, function, and confidence later in life.</p>
+        </article>
+        <article class="faq-item">
+          <strong>What if I’m worried about injury or gym intimidation?</strong>
+          <p>That concern is common, which is why the offer relies on coached technique, small groups, and evidence-based programming instead of a general free-for-all.</p>
+        </article>
+        <article class="faq-item">
+          <strong>Why include a DEXA scan?</strong>
+          <p>It turns vague wellness into a measurable baseline and helps people see visible progress over the first eight weeks.</p>
+        </article>
+      </div>
+    </section>
+
+    <section class="panel" id="qualifier">
+      <div class="qualifier-wrap">
+        <div>
+          <div class="eyebrow">Interactive qualifier</div>
+          <h2>Is this for you? Find your starting block.</h2>
+          <p>The qualifier is designed to place visitors into a meaningful entry route, not a pass-or-fail bucket. It should work for active adults 50+ and for adult children helping decide on their behalf.</p>
+          <div class="signals">
+            <article class="signal">
+              <strong>Foundation Block</strong>
+              <p>For low confidence, higher caution, or people who need reassurance before they commit.</p>
+            </article>
+            <article class="signal">
+              <strong>Build Block</strong>
+              <p>The core route for active adults who know walking or classes are no longer enough on their own.</p>
+            </article>
+            <article class="signal">
+              <strong>Progress Block</strong>
+              <p>For people who want more measurement, clearer accountability, and stronger momentum from the start.</p>
+            </article>
+          </div>
+        </div>
+
+        <div class="qualifier-shell">
+          <div class="progress-row">
+            <span id="progressLabel">Question 1 of 5</span>
+            <span id="progressHint">Choose one answer</span>
+          </div>
+          <div class="progress-track" aria-hidden="true"><div class="progress-fill" id="progressFill"></div></div>
+
+          <div class="question-card" id="questionCard"></div>
+
+          <div class="qualifier-nav">
+            <button type="button" class="secondary" id="backBtn" disabled>Back</button>
+            <button type="button" class="cta" id="nextBtn" disabled>Next question</button>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <section id="tiers">
+      <div class="section-head">
+        <div>
+          <div class="eyebrow">Offer design</div>
+          <h2>Three entry points, one shared positioning.</h2>
+        </div>
+        <p>Every route should feel like a smart starting block for a different person, not a watered-down version of the core programme.</p>
+      </div>
+      <div class="tiers">
+        <article class="tier">
+          <div class="tier-label">Tier 01 · Foundation</div>
+          <strong>A safe first step for people who need confidence before intensity.</strong>
+          <p>Lead with reassurance, coached technique, simple progressions, and a clear explanation for every movement.</p>
+          <div class="tier-price">€299 <small class="meta">entry route</small></div>
+          <a href="#qualifier" class="tier-cta is-amber">Start with Foundation</a>
+        </article>
+        <article class="tier highlight">
+          <div class="tier-label">Tier 02 · Build</div>
+          <strong>The clearest fit for active adults who know they need structured strength.</strong>
+          <p>This is the default outcome: eight weeks of coached beginner barbell work, plus accountability and measurable momentum.</p>
+          <div class="tier-price">€399–€499 <small class="meta">core sweet spot</small></div>
+          <a href="#qualifier" class="tier-cta">Join the Build Block</a>
+        </article>
+        <article class="tier">
+          <div class="tier-label">Tier 03 · Progress</div>
+          <strong>A more measurement-led route for people who want stronger proof and structure.</strong>
+          <p>Use baseline DEXA, visible checkpoints, and more explicit progress framing to justify the premium end of the range.</p>
+          <div class="tier-price">€549–€599 <small class="meta">premium route</small></div>
+          <a href="#qualifier" class="tier-cta is-green">See the Progress Route</a>
+        </article>
+      </div>
+    </section>
+  </main>
+
+  <footer class="container">
+    Single-page prototype for a longevity-focused strength launch, built around the positioning angle: active adults 50+ who know general activity is not the same as structured strength.
+  </footer>
+
+  <script>
+    const root = document.documentElement;
+    const themeToggle = document.getElementById('themeToggle');
+    const themeIcon = document.getElementById('themeIcon');
+
+    function syncThemeIcon() {
+      const light = root.classList.contains('light');
+      themeIcon.textContent = light ? '☾' : '☀︎';
+      themeToggle.setAttribute('aria-label', light ? 'Switch to dark mode' : 'Switch to light mode');
+      themeToggle.setAttribute('title', light ? 'Switch to dark mode' : 'Switch to light mode');
+    }
+
+    syncThemeIcon();
+
+    themeToggle.addEventListener('click', () => {
+      root.classList.toggle('light');
+      try {
+        localStorage.setItem('longevity-theme', root.classList.contains('light') ? 'light' : 'dark');
+      } catch (e) {}
+      syncThemeIcon();
+    });
+
+    const questions = [
+      {
+        prompt: 'What best describes you right now?',
+        options: [
+          { label: 'I walk, swim, cycle, golf, or do classes, but I do little structured strength work.', scores: { build: 3, progress: 1 } },
+          { label: 'I am returning after a long gap and want guidance.', scores: { foundation: 3, build: 1 } },
+          { label: 'I already do some gym work, but I want a proper beginner barbell structure.', scores: { build: 2, progress: 3 } },
+          { label: 'I mostly need reassurance before I start.', scores: { foundation: 4 } }
+        ]
+      },
+      {
+        prompt: 'What is your main goal?',
+        options: [
+          { label: 'Stay independent and capable for longer.', scores: { build: 3, foundation: 1 } },
+          { label: 'Build confidence and learn proper technique.', scores: { foundation: 3, build: 2 } },
+          { label: 'Improve strength and lean mass with measurable progress.', scores: { progress: 4, build: 1 } },
+          { label: 'Help my parent get onto the right programme.', scores: { foundation: 3, build: 1 } }
+        ]
+      },
+      {
+        prompt: 'How do you feel about gyms?',
+        options: [
+          { label: 'I feel intimidated and do not know where to begin.', scores: { foundation: 4 } },
+          { label: 'I’m fine in a gym, but I want more coaching.', scores: { build: 2, progress: 2 } },
+          { label: 'I dislike generic classes that feel too easy.', scores: { build: 3, progress: 1 } },
+          { label: 'I want something serious, but not extreme.', scores: { build: 3, progress: 2 } }
+        ]
+      },
+      {
+        prompt: 'What sounds most like your current concern?',
+        options: [
+          { label: 'Fear of injury.', scores: { foundation: 4 } },
+          { label: 'Lack of confidence.', scores: { foundation: 3, build: 1 } },
+          { label: 'I’m active, but I know it is not enough.', scores: { build: 4 } },
+          { label: 'I want proof that this is worth paying for.', scores: { progress: 4, build: 1 } }
+        ]
+      },
+      {
+        prompt: 'How ready are you for an 8-week commitment?',
+        options: [
+          { label: 'I want the gentlest possible entry.', scores: { foundation: 4 } },
+          { label: 'I’m ready for a coached beginner course.', scores: { build: 4 } },
+          { label: 'I want the most data-led, progress-focused option.', scores: { progress: 4 } },
+          { label: 'I’m comparing for myself or for a parent.', scores: { foundation: 2, build: 1 } }
+        ]
+      }
+    ];
+
+    const results = {
+      foundation: {
+        cardClass: 'foundation-card',
+        label: 'Foundation Block',
+        title: 'Start safely, build trust first.',
+        copy: 'You do not need to “get fitter first.” You need a safe, confidence-building start with coaching, simple progressions, and a clear reason for every movement.',
+        bullets: [
+          'Best for lower confidence, higher caution, or first-time lifters after a long gap.',
+          'Lead with reassurance, technique, and a calmer first session experience.',
+          'Also the strongest fit for adult children comparing on behalf of a parent.'
+        ],
+        ctaLabel: 'Start with Foundation',
+        ctaClass: 'tier-cta is-amber'
+      },
+      build: {
+        cardClass: '',
+        label: 'Build Block',
+        title: 'You are the clearest fit for the core 8-week course.',
+        copy: 'You are active enough to care, ready to learn, and missing the one training pillar that helps you stay capable longer.',
+        bullets: [
+          'Best for active adults who know walking or classes are not enough on their own.',
+          'Combines coached beginner barbell work with accountability and structure.',
+          'This should be the default route for the largest share of visitors.'
+        ],
+        ctaLabel: 'Join the 8-Week Build Block',
+        ctaClass: 'tier-cta'
+      },
+      progress: {
+        cardClass: 'progress-card',
+        label: 'Progress Block',
+        title: 'Begin with the most measurement-led route.',
+        copy: 'You want proof, structure, and stronger momentum. Baseline DEXA and progress checks make the next eight weeks feel tangible and worth paying for.',
+        bullets: [
+          'Best for people who want visible metrics, accountability, and a more premium entry point.',
+          'Use DEXA and progress reviews to reinforce value perception.',
+          'Strong option for visitors already comfortable investing in higher-touch coaching.'
+        ],
+        ctaLabel: 'See the Progress Route',
+        ctaClass: 'tier-cta is-green'
+      }
+    };
+
+    const questionCard = document.getElementById('questionCard');
+    const progressFill = document.getElementById('progressFill');
+    const progressLabel = document.getElementById('progressLabel');
+    const progressHint = document.getElementById('progressHint');
+    const backBtn = document.getElementById('backBtn');
+    const nextBtn = document.getElementById('nextBtn');
+
+    let currentIndex = 0;
+    const answers = new Array(questions.length).fill(null);
+
+    function getScores() {
+      const total = { foundation: 0, build: 0, progress: 0 };
+      questions.forEach((question, qIndex) => {
+        const answerIndex = answers[qIndex];
+        if (answerIndex === null) return;
+        const scoreMap = question.options[answerIndex].scores;
+        Object.keys(scoreMap).forEach(key => { total[key] += scoreMap[key]; });
+      });
+      return total;
+    }
+
+    function getResultKey() {
+      const total = getScores();
+      const sorted = Object.entries(total).sort((a, b) => b[1] - a[1]);
+      return sorted[0][0];
+    }
+
+    function renderQuestion() {
+      const question = questions[currentIndex];
+      const progress = ((currentIndex + 1) / questions.length) * 100;
+      progressFill.style.width = progress + '%';
+      progressLabel.textContent = 'Question ' + (currentIndex + 1) + ' of ' + questions.length;
+      progressHint.textContent = currentIndex === questions.length - 1 ? 'Your result appears next' : 'Choose one answer';
+
+      const choicesHtml = question.options.map((option, index) => {
+        const selected = answers[currentIndex] === index ? ' is-selected' : '';
+        return `
+          <button type="button" class="choice${selected}" data-index="${index}">
+            <span>${String.fromCharCode(65 + index)}</span>
+            <strong>${option.label}</strong>
+          </button>
+        `;
+      }).join('');
+
+      questionCard.innerHTML = `
+        <div class="question-card-inner">
+          <h3>${question.prompt}</h3>
+          <div class="choices">${choicesHtml}</div>
+        </div>
+      `;
+
+      questionCard.querySelectorAll('.choice').forEach(btn => {
+        btn.addEventListener('click', () => {
+          answers[currentIndex] = Number(btn.dataset.index);
+          renderQuestion();
+        });
+      });
+
+      backBtn.disabled = currentIndex === 0;
+      nextBtn.disabled = answers[currentIndex] === null;
+      nextBtn.textContent = currentIndex === questions.length - 1 ? 'See my starting block' : 'Next question';
+    }
+
+    function renderResult() {
+      const key = getResultKey();
+      const result = results[key];
+      progressFill.style.width = '100%';
+      progressLabel.textContent = 'Your starting block';
+      progressHint.textContent = result.label;
+      questionCard.innerHTML = `
+        <article class="result-card ${result.cardClass}">
+          <div class="result-label">${result.label}</div>
+          <h3>${result.title}</h3>
+          <p>${result.copy}</p>
+          <ul>
+            ${result.bullets.map(item => `<li>${item}</li>`).join('')}
+          </ul>
+          <a href="#tiers" class="${result.ctaClass}">${result.ctaLabel}</a>
+        </article>
+      `;
+      nextBtn.textContent = 'Start again';
+      nextBtn.disabled = false;
+    }
+
+    backBtn.addEventListener('click', () => {
+      if (currentIndex === 0) return;
+      currentIndex -= 1;
+      renderQuestion();
+    });
+
+    nextBtn.addEventListener('click', () => {
+      if (currentIndex < questions.length - 1) {
+        currentIndex += 1;
+        renderQuestion();
+        return;
+      }
+
+      const inResultMode = progressLabel.textContent === 'Your starting block';
+      if (inResultMode) {
+        currentIndex = 0;
+        answers.fill(null);
+        renderQuestion();
+        return;
+      }
+
+      renderResult();
+    });
+
+    renderQuestion();
+  </script>
+</body>
+</html>
